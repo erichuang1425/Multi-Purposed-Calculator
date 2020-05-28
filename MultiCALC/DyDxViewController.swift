@@ -12,6 +12,9 @@ class DyDxViewController: UIViewController {
     @IBOutlet weak var coeficientTextField: UITextField!
     @IBOutlet weak var powerTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
+    var powerGlobal = 0.0
+    var coeficientGlobal = 0.0
+    var negative = 1
     override func viewWillDisappear(_ animated: Bool) {
         coeficientTextField.text = ""
         powerTextField.text = ""
@@ -19,6 +22,7 @@ class DyDxViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        negative = 1
         resultLabel.adjustsFontSizeToFitWidth = true
         resultLabel.minimumScaleFactor = 0.2
         resultLabel.numberOfLines = 2
@@ -29,22 +33,56 @@ class DyDxViewController: UIViewController {
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         if let powerString = powerTextField.text, let coeficientString = coeficientTextField.text{
-            if coeficientString.contains("/") == true{
-                calculation(Double(powerString), fraction(coeficientString))
+            if powerString != "", coeficientString != ""{
+                if powerString.contains("/"){
+                           powerGlobal = fraction(powerString)
+                       }else{
+                           if let _ = Double(powerString){
+                               doubleCouldConvert(powerString, choice: "power")
+                           }else{
+                               resultLabel.text = "Error - cannot convert to numbers."
+                               return
+                           }
+                       }
+                       if coeficientString.contains("/"){
+                           coeficientGlobal = fraction(coeficientString)
+                
+                       }else{
+                           if let _ = Double(coeficientString){
+                               doubleCouldConvert(coeficientString, choice: "coeficient")
+                           }else{
+                               resultLabel.text = "Error - cannot convert to numbers."
+                               return
+                           }
+                           
+                       }
+                       calculation(powerGlobal, coeficientGlobal)
+                   
             }else{
-                calculation(Double(powerString), Double(coeficientString))
+                resultLabel.text = "Blank - Enter a value."
             }
             
         }else{
-            resultLabel.text = "Error - Enter the correct value."
+            resultLabel.text = "Blank - Enter a value."
         }
         
 
     }
-    func calculation(_ power:Double?, _ coeficient:Double?){
-        if let power = power, let coeficient = coeficient{
-            resultLabel.text = dydxCalculation(power, coeficient)
+    func doubleCouldConvert(_ insertedDouble:String, choice:String){
+        if let doubleConverted = Double(insertedDouble){
+            if choice == "power"{
+                powerGlobal = doubleConverted
+            }else{
+                coeficientGlobal = doubleConverted
+            }
+        }else{
+            resultLabel.text = "Error - cannot convert to numbers."
         }
+    }
+    func calculation(_ power:Double, _ coeficient:Double){
+        
+            resultLabel.text = dydxCalculation(power, coeficient)
+        
     }
     func fraction(_ fractionString:String)->Double{
         var double = 0.0
@@ -52,10 +90,12 @@ class DyDxViewController: UIViewController {
             if each == "/"{
                 let beforeAndAfter = fractionString.components(separatedBy:"/")
                 if let first = Double(beforeAndAfter[0]), let second = Double(beforeAndAfter[1]){
-                    if let doubleCalculation = Double(String(format:"%.2f",first/second)){
-                        double = doubleCalculation
-                        print(first/second)
-                    }
+                    let calculated = first/second
+                    let count = String(Int(calculated)).compactMap{ $0.wholeNumberValue }.count
+                    let doubleCalculation = round(calculated, to: count)
+
+                    double = doubleCalculation
+                    
                 }
               
             }
@@ -65,19 +105,57 @@ class DyDxViewController: UIViewController {
     
     
     func dydxCalculation(_ power:Double, _ coeficient:Double)->String{
-        let coeficientDone = String(format:"%.2f",coeficient*Double(power))
-        let powerDone = String(Int(floor(power-1))).compactMap{ $0.wholeNumberValue }
-        print(powerDone)
+        let minusPower = power-1
+        var calculation:Double{
+            if minusPower == 0.0{
+                return 0.0
+            }else{
+                return coeficient*minusPower
+            }
+        }
+        let countCalculation = String(Int(calculation)).compactMap{ $0.wholeNumberValue }.count
+        var coeficientDone:Double{
+            if calculation == 0.0{
+                return 0.0
+            }else{
+                print(countCalculation)
+                return round(calculation, to: countCalculation+1)
+            }
+        }
         var powerFinishDone = ""
         var finishedString = ""
-        for each in powerDone{
-            powerFinishDone += Superscript.value(each)
+        if minusPower<0{
+            negative = -1
+        }
+        let count = String(Int(power)).compactMap{ $0.wholeNumberValue }.count
+        if minusPower == 0{
+            powerFinishDone = "⁰"
+        }else{
+            let powerDone = String(Int(round(minusPower, to: count))).compactMap{ $0.wholeNumberValue }
+            for each in powerDone{
+                powerFinishDone += Superscript.value(each, negative: negative)
+                negative = 1
+            }
         }
         finishedString = "\(coeficientDone)x\(powerFinishDone)"
         return finishedString
         
     }
-   
+   func round(_ num: Double, to places: Int) -> Double {
+    if num<0{
+        let p = log10(abs(num))
+        let f = pow(10, p.rounded() - Double(places) + 1)
+        let rnum = (num / f).rounded() * f
+
+        return rnum * -1
+    }else{
+       let p = log10(abs(num))
+       let f = pow(10, p.rounded() - Double(places) + 1)
+       let rnum = (num / f).rounded() * f
+
+       return rnum
+    }
+   }
 
 }
 
@@ -90,11 +168,11 @@ extension DyDxViewController:UITextFieldDelegate{
 }
 
 extension Int {
-    func superscriptString() -> String {
+    func superscriptString(negative:Int) -> String {
         let minusPrefixOrEmpty: String = self < 0 ? Superscript.minus : ""
         let (quotient, remainder) = abs(self).quotientAndRemainder(dividingBy: 10)
-        let quotientString = quotient > 0 ? quotient.superscriptString() : ""
-        return minusPrefixOrEmpty + quotientString + Superscript.value(remainder)
+        let quotientString = quotient > 0 ? quotient.superscriptString(negative: negative) : ""
+        return minusPrefixOrEmpty + quotientString + Superscript.value(remainder, negative: negative)
     }
 }
 
@@ -113,9 +191,14 @@ enum Superscript {
         "⁹"
     ]
 
-    static func value(_ int: Int) -> String {
-        assert(int >= 0 && int <= 9)
-        return values[int]
+    static func value(_ int: Int, negative:Int) -> String {
+        if negative<0{
+            assert(abs(int) >= 0 && abs(int) <= 9)
+            return "⁻"+values[int]
+        }else{
+            assert(int >= 0 && int <= 9)
+            return values[int]
+        }
     }
 }
 extension StringProtocol {
