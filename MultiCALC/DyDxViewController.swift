@@ -1,6 +1,6 @@
 //
 //  DyDxViewController.swift
-//  Xcode Terminal Project
+//  MultiCALC
 //
 //  Created by Eric Huang on 5/27/20.
 //  Copyright © 2020 Eric Huang. All rights reserved.

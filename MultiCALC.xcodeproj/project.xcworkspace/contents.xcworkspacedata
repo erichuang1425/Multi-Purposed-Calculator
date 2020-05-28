@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Xcode Terminal Project.xcodeproj">
+      location = "self:/Users/huangyikai/Desktop/Swift Learning/Xcode Terminal Project/MultiCALC.xcodeproj">
    </FileRef>
 </Workspace>

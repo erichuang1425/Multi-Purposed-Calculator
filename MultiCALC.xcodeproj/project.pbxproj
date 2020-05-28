@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		007ED311247E44360063EA21 /* Xcode Terminal Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xcode Terminal Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		007ED311247E44360063EA21 /* MultiCALC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiCALC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007ED314247E44360063EA21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007ED316247E44360063EA21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		007ED318247E44360063EA21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		007ED308247E44360063EA21 = {
 			isa = PBXGroup;
 			children = (
-				007ED313247E44360063EA21 /* Xcode Terminal Project */,
+				007ED313247E44360063EA21 /* MultiCALC */,
 				007ED312247E44360063EA21 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		007ED312247E44360063EA21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				007ED311247E44360063EA21 /* Xcode Terminal Project.app */,
+				007ED311247E44360063EA21 /* MultiCALC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		007ED313247E44360063EA21 /* Xcode Terminal Project */ = {
+		007ED313247E44360063EA21 /* MultiCALC */ = {
 			isa = PBXGroup;
 			children = (
 				007ED314247E44360063EA21 /* AppDelegate.swift */,
@@ -70,15 +70,15 @@
 				007ED31F247E443A0063EA21 /* LaunchScreen.storyboard */,
 				007ED322247E443A0063EA21 /* Info.plist */,
 			);
-			path = "Xcode Terminal Project";
+			path = MultiCALC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		007ED310247E44360063EA21 /* Xcode Terminal Project */ = {
+		007ED310247E44360063EA21 /* MultiCALC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 007ED325247E443A0063EA21 /* Build configuration list for PBXNativeTarget "Xcode Terminal Project" */;
+			buildConfigurationList = 007ED325247E443A0063EA21 /* Build configuration list for PBXNativeTarget "MultiCALC" */;
 			buildPhases = (
 				007ED30D247E44360063EA21 /* Sources */,
 				007ED30E247E44360063EA21 /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = "Xcode Terminal Project";
+			name = MultiCALC;
 			productName = "Xcode Terminal Project";
-			productReference = 007ED311247E44360063EA21 /* Xcode Terminal Project.app */;
+			productReference = 007ED311247E44360063EA21 /* MultiCALC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 007ED30C247E44360063EA21 /* Build configuration list for PBXProject "Xcode Terminal Project" */;
+			buildConfigurationList = 007ED30C247E44360063EA21 /* Build configuration list for PBXProject "MultiCALC" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				007ED310247E44360063EA21 /* Xcode Terminal Project */,
+				007ED310247E44360063EA21 /* MultiCALC */,
 			);
 		};
 /* End PBXProject section */
@@ -294,13 +294,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4GL4S84VTR;
-				INFOPLIST_FILE = "Xcode Terminal Project/Info.plist";
+				INFOPLIST_FILE = MultiCALC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.erichuang1425.Xcode-Terminal-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erichuang1425.MultiCALC;
+				PRODUCT_NAME = MultiCALC;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,13 +312,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4GL4S84VTR;
-				INFOPLIST_FILE = "Xcode Terminal Project/Info.plist";
+				INFOPLIST_FILE = MultiCALC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.erichuang1425.Xcode-Terminal-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erichuang1425.MultiCALC;
+				PRODUCT_NAME = MultiCALC;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,7 +327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		007ED30C247E44360063EA21 /* Build configuration list for PBXProject "Xcode Terminal Project" */ = {
+		007ED30C247E44360063EA21 /* Build configuration list for PBXProject "MultiCALC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				007ED323247E443A0063EA21 /* Debug */,
@@ -336,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		007ED325247E443A0063EA21 /* Build configuration list for PBXNativeTarget "Xcode Terminal Project" */ = {
+		007ED325247E443A0063EA21 /* Build configuration list for PBXNativeTarget "MultiCALC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				007ED326247E443A0063EA21 /* Debug */,
