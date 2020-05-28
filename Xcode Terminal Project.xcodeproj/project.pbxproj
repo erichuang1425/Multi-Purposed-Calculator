@@ -13,6 +13,8 @@
 		007ED31C247E44360063EA21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007ED31A247E44360063EA21 /* Main.storyboard */; };
 		007ED31E247E443A0063EA21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007ED31D247E443A0063EA21 /* Assets.xcassets */; };
 		007ED321247E443A0063EA21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007ED31F247E443A0063EA21 /* LaunchScreen.storyboard */; };
+		007ED329247E493A0063EA21 /* FibonacciViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007ED328247E493A0063EA21 /* FibonacciViewController.swift */; };
+		007ED32B247E77440063EA21 /* DyDxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007ED32A247E77440063EA21 /* DyDxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		007ED31D247E443A0063EA21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007ED320247E443A0063EA21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		007ED322247E443A0063EA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		007ED328247E493A0063EA21 /* FibonacciViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciViewController.swift; sourceTree = "<group>"; };
+		007ED32A247E77440063EA21 /* DyDxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyDxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				007ED314247E44360063EA21 /* AppDelegate.swift */,
 				007ED316247E44360063EA21 /* SceneDelegate.swift */,
 				007ED318247E44360063EA21 /* ViewController.swift */,
+				007ED328247E493A0063EA21 /* FibonacciViewController.swift */,
+				007ED32A247E77440063EA21 /* DyDxViewController.swift */,
 				007ED31A247E44360063EA21 /* Main.storyboard */,
 				007ED31D247E443A0063EA21 /* Assets.xcassets */,
 				007ED31F247E443A0063EA21 /* LaunchScreen.storyboard */,
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007ED32B247E77440063EA21 /* DyDxViewController.swift in Sources */,
 				007ED319247E44360063EA21 /* ViewController.swift in Sources */,
+				007ED329247E493A0063EA21 /* FibonacciViewController.swift in Sources */,
 				007ED315247E44360063EA21 /* AppDelegate.swift in Sources */,
 				007ED317247E44360063EA21 /* SceneDelegate.swift in Sources */,
 			);
