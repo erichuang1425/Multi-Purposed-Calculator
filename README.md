@@ -1,2 +1,2 @@
 # Multi-Purposed-Calculator
-Calculator for repetitive but calculable works.
+An ios calculator application for repetitive but calculable works.
